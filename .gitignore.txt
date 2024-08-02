@@ -1,0 +1,4 @@
+medefis.exc
+build/
+dist/
+medefis.spec
