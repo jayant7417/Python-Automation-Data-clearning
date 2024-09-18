@@ -1,5 +1,6 @@
 import os
 import pathlib
+from delete_files import delete_files
 from process_closing import process_closing
 from process_job_board_files import process_job_board_files
 from process_old_vms_files import process_old_vms_files
@@ -12,7 +13,7 @@ from datetime import datetime
 current_directory = os.getcwd()
 folder_path = pathlib.Path(current_directory)
 
-given_date = datetime(2024, 9, 15)
+given_date = datetime(2024, 10, 15)
 
 # Get today's date
 today_date = datetime.today()
@@ -31,6 +32,7 @@ while True:
             break
         print("enter 1 for normal")
         print("enter 2 for old")
+        print("enter 0 for delete")
         b = int(input())
         if b == 1:
             process_vms_files(folder_path)
@@ -40,6 +42,8 @@ while True:
             process_closing(folder_path)
         elif b == 2:
             process_old_vms_files(folder_path)
+        elif b == 0:
+            delete_files(folder_path)
         else:
             print ("wrong input plz put a valid number")
     except ValueError:

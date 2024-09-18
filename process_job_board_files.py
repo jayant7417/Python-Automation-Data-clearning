@@ -20,7 +20,7 @@ def process_job_board_files(folder_path):
         merged_df.drop_duplicates(subset='External Job Posting Id', inplace=True)
         
         # Cleaning 'External Job Posting Id' column
-        replace_patterns = ['(48 hours)', '(48hours)', '(48 hrs)', '(48hrs)', "'",'(48 HOURS)', '(48HOURS)', '(48 HRS)', '(48HRS)','(48 Hours)', '(48Hours)', '(48 Hrs)', '(48Hrs)', "''", '"']
+        replace_patterns = ['(48 hours)', '(48hours)', '(48 hrs)', '(48hrs)', "'",'(48 HOURS)', '(48HOURS)', '(48 HRS)', '(48HRS)','(48 Hours)', '(48Hours)', '(48 Hrs)', '(48Hrs)', "''", '"','(',')','()']
         for pattern in replace_patterns:
             merged_df['External Job Posting Id'] = merged_df['External Job Posting Id'].str.replace(pattern, '', regex=False)
         
